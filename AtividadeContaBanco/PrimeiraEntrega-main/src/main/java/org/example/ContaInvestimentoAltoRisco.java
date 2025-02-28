@@ -1,0 +1,17 @@
+package org.example;
+
+class ContaInvestimentoAltoRisco extends ContaInvestimento{
+    public ContaInvestimentoAltoRisco(String numeroConta, String titular, double saldo) {
+        super(numeroConta, titular, saldo);
+    }
+
+    @Override
+    public boolean sacar(double valor) {
+        double taxa = valor * 0.05;
+        if (saldo >= 10000 && saldo >= (valor + taxa)) {
+            saldo -= (valor + taxa);
+            return true;
+        }
+        return false;
+    }
+}
